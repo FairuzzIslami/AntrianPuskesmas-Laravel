@@ -83,7 +83,7 @@
                     </li>
                 </ul>
                 <div class="ms-lg-3 mt-3 mt-lg-0">
-                    <a href="#login" class="btn btn-success">Login</a>
+                    <a href="#login" class="btn btn-login">Login</a>
                 </div>
             </div>
         </div>
