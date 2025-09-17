@@ -5,39 +5,8 @@
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo" width="35" class="me-2 rounded-circle">
-            <span class="text-gradient">Puskesmas Digital</span>
-        </a>
+@extends('layout.nav')
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNav">
-            <ul class="navbar-nav ms-auto text-center">
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="{{ url('/') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold active-link" href="{{ url('/tentang') }}">Tentang</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#fitur">Fitur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#kontak">Kontak</a>
-                </li>
-                <li>
-                    <a href="" class="btn btn-gradient fw-bold text-white shadow">Login</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 {{-- Profil (Full Background) --}}
 <section class="profile-section">
