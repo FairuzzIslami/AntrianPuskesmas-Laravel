@@ -51,6 +51,8 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -58,23 +60,26 @@
                 <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo" width="30" class="me-2">
                 Puskesmas Digital
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active active-nav" href="#">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active active-nav' : '' }}" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tentang">Tentang</a>
+                        <a class="nav-link {{ Request::is('tentang') ? 'active active-nav' : '' }}"
+                            href="/tentang">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#fitur">Fitur</a>
+                        <a class="nav-link {{ Request::is('fitur') ? 'active active-nav' : '' }}"
+                            href="/fitur">Fitur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Kontak</a>
+                        <a class="nav-link {{ Request::is('kontak') ? 'active active-nav' : '' }}"
+                            href="/kontak">Kontak</a>
                     </li>
                 </ul>
                 <div class="ms-lg-3 mt-3 mt-lg-0">
@@ -83,6 +88,39 @@
             </div>
         </div>
     </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            // Tutup menu setelah klik link
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    let bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                });
+            });
+
+            // Toggle manual ketika klik garis tiga
+            navbarToggler.addEventListener('click', function() {
+                let bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+
+                if (navbarCollapse.classList.contains('show')) {
+                    bsCollapse.hide();
+                } else {
+                    bsCollapse.show();
+                }
+            });
+        });
+    </script>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
