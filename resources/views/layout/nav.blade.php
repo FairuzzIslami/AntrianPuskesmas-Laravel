@@ -47,6 +47,18 @@
             border-radius: 50%;
             margin-right: 10px;
         }
+        .btn-login {
+            background-color: #2ecc71 !important;
+            /* hijau terang sama seperti di Home */
+            border-color: #2ecc71 !important;
+            color: #fff !important;
+        }
+
+        .btn-login:hover {
+            background-color: #27ae60 !important;
+            /* hijau sedikit gelap saat hover */
+            border-color: #27ae60 !important;
+        }
     </style>
 </head>
 

@@ -263,6 +263,12 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/6285799690454" target="_blank" class="position-fixed"
+        style="bottom:20px; right:20px; background:#25D366; color:white;
+          padding:12px 16px; border-radius:50%; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000;">
+        <i class="bi bi-whatsapp fs-4"></i>
+    </a>
+
 
     <style>
         .gradient-bg {
