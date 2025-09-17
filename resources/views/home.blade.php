@@ -127,117 +127,174 @@
 
     <body>
         <!-- Navbar -->
-@extends('layout.nav')
-       
+        @extends('layout.nav')
+
         <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <h1 class="display-4 fw-bold mb-4">Solusi Terbaik untuk Layanan Kesehatan Digital Anda</h1>
-                            <p class="lead mb-5">Kami hadir dengan solusi antrian digital terbaik untuk mendukung kebutuhan
-                                layanan kesehatan Anda. Proses aman, pengelolaan mudah, dan akses yang responsif kapan saja.
-                            </p>
-                            <a href="#" class="btn btn-lg btn-success px-5 py-3 fw-bold">Silahkan Login Terlebih
-                                Dahulu</a>
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold mb-4">Solusi Terbaik untuk Layanan Kesehatan Digital Anda</h1>
+                        <p class="lead mb-5">Kami hadir dengan solusi antrian digital terbaik untuk mendukung kebutuhan
+                            layanan kesehatan Anda. Proses aman, pengelolaan mudah, dan akses yang responsif kapan saja.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-success px-5 py-3 fw-bold">Silahkan Login Terlebih
+                            Dahulu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Mengapa Memilih Layanan Kami?</h2>
+                    <p class="text-muted">Kami memberikan pengalaman terbaik dalam pengambilan antrian puskesmas</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon text-biru">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h4 class="fw-bold">Hemat Waktu</h4>
+                                <p class="text-muted">Tidak perlu datang lebih awal, ambil antrian secara online dan
+                                    datang
+                                    sesuai jadwal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon text-hijau">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4 class="fw-bold">Aman dan Terjamin</h4>
+                                <p class="text-muted">Sistem kami menjamin data pribadi Anda tetap aman dan terenkripsi
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="feature-icon text-biru">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4 class="fw-bold">Akses Mudah</h4>
+                                <p class="text-muted">Akses layanan antrian kapan saja dan di mana saja melalui
+                                    smartphone
+                                    Anda</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Features Section -->
-            <section class="py-5">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bold">Mengapa Memilih Layanan Kami?</h2>
-                        <p class="text-muted">Kami memberikan pengalaman terbaik dalam pengambilan antrian puskesmas</p>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="card feature-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <div class="feature-icon text-biru">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <h4 class="fw-bold">Hemat Waktu</h4>
-                                    <p class="text-muted">Tidak perlu datang lebih awal, ambil antrian secara online dan
-                                        datang
-                                        sesuai jadwal</p>
-                                </div>
+        <!-- How It Works -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Cara Menggunakan Layanan</h2>
+                    <p class="text-muted">Hanya dengan 3 langkah mudah, dapatkan antrian Anda</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4 class="fw-bold">Login</h4>
+                                <p class="text-muted mb-0">Lakukan pendaftaran akun anda</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card feature-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <div class="feature-icon text-hijau">
-                                        <i class="fas fa-shield-alt"></i>
-                                    </div>
-                                    <h4 class="fw-bold">Aman dan Terjamin</h4>
-                                    <p class="text-muted">Sistem kami menjamin data pribadi Anda tetap aman dan terenkripsi
-                                    </p>
-                                </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4 class="fw-bold">Pilih Layanan dan Jadwal</h4>
+                                <p class="text-muted mb-0">Pilih jenis layanan kesehatan dan jadwal kunjungan yang
+                                    diinginkan</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card feature-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <div class="feature-icon text-biru">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                    <h4 class="fw-bold">Akses Mudah</h4>
-                                    <p class="text-muted">Akses layanan antrian kapan saja dan di mana saja melalui
-                                        smartphone
-                                        Anda</p>
-                                </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4 class="fw-bold">Ambil Antrian</h4>
+                                <p class="text-muted mb-0">Dapatkan nomor antrian elektronik dan tunjukkan saat datang
+                                    ke
+                                    puskesmas</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- How It Works -->
-            <section class="py-5 bg-light">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bold">Cara Menggunakan Layanan</h2>
-                        <p class="text-muted">Hanya dengan 3 langkah mudah, dapatkan antrian Anda</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-white pt-5" style="background-color: #2980b9;">
+            <div class="container">
+                <div class="row gy-4">
+
+                    <!-- Logo & Deskripsi -->
+                    <div class="col-lg-3 col-md-6">
+                        <img src="{{asset('asset/img/logo.jpg')}}" alt="Logo Puskesmas" class="mb-3" style="max-width: 100px;">
+                        <p class="small">
+                            Sistem antrian digital untuk pelayanan Puskesmas yang lebih tertib, cepat, dan transparan.
+                        </p>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="step-number">1</div>
-                                <div>
-                                    <h4 class="fw-bold">Login</h4>
-                                    <p class="text-muted mb-0">Lakukan pendaftaran akun anda</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="step-number">2</div>
-                                <div>
-                                    <h4 class="fw-bold">Pilih Layanan dan Jadwal</h4>
-                                    <p class="text-muted mb-0">Pilih jenis layanan kesehatan dan jadwal kunjungan yang
-                                        diinginkan</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="step-number">3</div>
-                                <div>
-                                    <h4 class="fw-bold">Ambil Antrian</h4>
-                                    <p class="text-muted mb-0">Dapatkan nomor antrian elektronik dan tunjukkan saat datang
-                                        ke
-                                        puskesmas</p>
-                                </div>
-                            </div>
+
+                    <!-- Menu -->
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="fw-bold mb-3 text-white">Menu</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#home" class="text-decoration-none text-white d-block mb-2">Beranda</a></li>
+                            <li><a href="#tentang" class="text-decoration-none text-white d-block mb-2">Tentang</a></li>
+                            <li><a href="#fitur" class="text-decoration-none text-white d-block mb-2">Fitur</a></li>
+                            <li><a href="#kontak" class="text-decoration-none text-white d-block mb-2">Kontak</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Layanan Poli -->
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="fw-bold mb-3 text-white">Layanan</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none text-white d-block mb-2">Poli Umum</a></li>
+                            <li><a href="#" class="text-decoration-none text-white d-block mb-2">Poli Gigi</a></li>
+                            <li><a href="#" class="text-decoration-none text-white d-block mb-2">Poli Anak</a></li>
+                            <li><a href="#" class="text-decoration-none text-white d-block mb-2">Laboratorium</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Kontak -->
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="fw-bold mb-3 text-white">Kontak Kami</h5>
+                        <p class="small mb-2"><i class="bi bi-geo-alt text-warning"></i> Jl. Kesehatan No. 12, Jakarta</p>
+                        <p class="small mb-2"><i class="bi bi-envelope text-warning"></i> puskesmas@email.com</p>
+                        <p class="small mb-2"><i class="bi bi-telephone text-warning"></i> (021) 123-4567</p>
+
+                        <!-- Sosial Media -->
+                        <div class="mt-2">
+                            <a href="https://wa.me/6285799690454" target="_blank" class="me-3 text-white"><i
+                                    class="bi bi-whatsapp fs-5"></i></a>
+                            <a href="#" class="me-3 text-white"><i class="bi bi-facebook fs-5"></i></a>
+                            <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
                         </div>
                     </div>
-
                 </div>
-            </section>
 
-            <!-- Footer -->
+                <hr class="border-light mt-4">
 
-
-            <!-- Scripts -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        @endsection
+                <!-- Copyright -->
+                <div class="text-center pb-3">
+                    <small>© 2025 <span class="fw-bold text-white">Puskesmas Digital</span>. All Rights Reserved.</small>
+                </div>
+            </div>
+        </footer>
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    @endsection
