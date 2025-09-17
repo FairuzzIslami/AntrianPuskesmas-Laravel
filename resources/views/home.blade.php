@@ -143,7 +143,7 @@
                        <a class="nav-link active active-nav" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tentang">Tentang</a>
+                        <a class="nav-link" href="/tentang">Tentang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#fitur">Fitur</a>
