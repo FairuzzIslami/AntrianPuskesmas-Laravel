@@ -124,7 +124,6 @@
         }
     </style>
     </head>
-
     <body>
         <!-- Navbar -->
         @extends('layout.nav')
