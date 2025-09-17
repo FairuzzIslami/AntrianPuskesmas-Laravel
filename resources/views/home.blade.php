@@ -49,10 +49,10 @@
             <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNav">
                 <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link fw-semibold" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold" href="#tentang">Tentang</a>
+                        <a class="nav-link fw-semibold" href="{{ url('/tentang') }}">Tentang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-semibold" href="#fitur">Fitur</a>
