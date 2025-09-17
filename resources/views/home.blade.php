@@ -124,37 +124,6 @@
         }
     </style>
     </head>
-
-<<<<<<< HEAD
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo" width="30" class="me-2">
-                <i class="fas fa-hospital me-2"></i>Puskesmas Digital
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                       <a class="nav-link active active-nav" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tentang">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#fitur">Fitur</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Kontak</a>
-                    </li>
-                </ul>
-                <div class="ms-lg-3 mt-3 mt-lg-0">
-                    <a href="#login" class="btn btn-success">Login</a>
-=======
     <body>
         <!-- Navbar -->
 @extends('layout.nav')
@@ -172,7 +141,6 @@
                                 Dahulu</a>
                         </div>
                     </div>
->>>>>>> c9f9ffdf78ff583745d7947415fef961c2d4b440
                 </div>
             </section>
 
