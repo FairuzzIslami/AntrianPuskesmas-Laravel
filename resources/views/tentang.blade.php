@@ -321,5 +321,87 @@
     }
     .org-level .org-node-wrapper:first-child::before { left: 50%; }
     .org-level .org-node-wrapper:last-child::before { right: 50%; }
+
+    /* ✅ Responsiveness */
+    @media (max-width: 991.98px) {
+        .navbar-nav {
+            margin-top: 15px;
+        }
+        .navbar-nav .nav-item {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .profile-section {
+            min-height: 350px;
+            padding: 40px 15px;
+        }
+        .profile-section .content h2 {
+            font-size: 1.6rem;
+        }
+        .profile-section .content p {
+            font-size: 0.95rem;
+        }
+        .doctor-img {
+            height: 180px;
+        }
+        .org-node {
+            min-width: 160px;
+            padding: 10px;
+        }
+
+        /* 🔧 Struktur Organisasi jadi vertikal di tablet/HP */
+        .org-level {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            white-space: normal;
+            margin-top: 30px;
+        }
+        .org-level::before {
+            display: none;
+        }
+        .org-level .org-node-wrapper {
+            display: block;
+            padding: 10px 0;
+        }
+        .org-level .org-node-wrapper::before {
+            display: none;
+        }
+        .org-chart > .org-node-wrapper::after {
+            display: none;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .profile-section {
+            min-height: 280px;
+            padding: 30px 12px;
+        }
+        .profile-section .content h2 {
+            font-size: 1.4rem;
+        }
+        .profile-section .content p {
+            font-size: 0.9rem;
+        }
+        .doctor-img {
+            height: 160px;
+        }
+        .poli-card, .facility-card {
+            padding: 12px;
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+        }
+        .icon-box i {
+            font-size: 1.8rem;
+        }
+        .org-node {
+            min-width: 140px;
+            padding: 8px;
+        }
+    }
 </style>
 @endsection
