@@ -136,7 +136,7 @@
                         <p class="lead mb-5">Kami hadir dengan solusi antrian digital terbaik untuk mendukung kebutuhan
                             layanan kesehatan Anda. Proses aman, pengelolaan mudah, dan akses yang responsif kapan saja.
                         </p>
-                        <a href="#" class="btn btn-login px-5 py-3 fw-bold">Silahkan Login Terlebih
+                        <a href="/login" class="btn btn-login px-5 py-3 fw-bold">Silahkan Login Terlebih
                             Dahulu</a>
                     </div>
                 </div>
