@@ -6,81 +6,60 @@
 
             <!-- Bagian kiri -->
             <div class="col-md-6 left-card text-center">
-                <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo Puskesmas">
+                <img src="{{asset('asset/img/logo.jpg')}}" alt="Logo Puskesmas">
                 <h2 class="fw-bold">Puskesmas</h2>
                 <p>Layanan kesehatan cepat, aman, dan terpercaya</p>
             </div>
 
             <!-- Bagian kanan (Form Register) -->
             <div class="col-md-6 right-card">
-                <div class="text-center form-header">
-                    <h3 class="mb-4 fw-bold">Form Registrasi</h3>
+                <div class="text-center">
+                    <h3 class="mb-2 fw-bold">Form Registrasi</h3>
                     <p class="text-muted small">Isi data di bawah untuk membuat akun baru.</p>
                 </div>
                 <form>
-                    <!-- Nama Lengkap -->
+                    <!-- Nama -->
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Lengkap</label>
                         <div class="input-group">
-                            <label class="input-group-text" for="name">
+                            <label for="name" class="input-group-text" style="cursor:pointer;">
                                 <i class="fa-solid fa-user"></i>
                             </label>
                             <input type="text" class="form-control" id="name" placeholder="Masukkan nama lengkap">
                         </div>
                     </div>
-
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <div class="input-group">
-                            <label class="input-group-text" for="email">
+                            <label for="email" class="input-group-text" style="cursor:pointer;">
                                 <i class="fa-solid fa-envelope"></i>
                             </label>
                             <input type="email" class="form-control" id="email" placeholder="Masukkan email">
                         </div>
                     </div>
-
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
-                            <label class="input-group-text" for="password">
+                            <label class="input-group-text" for="password" style="cursor: pointer;">
                                 <i class="fa-solid fa-lock"></i>
                             </label>
-                            <input type="password" class="form-control" id="password" placeholder="Buat password">
+                            <input type="password" class="form-control" id="password" placeholder="Masukkan password">
                         </div>
                     </div>
-
                     <!-- Konfirmasi Password -->
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         <div class="input-group">
-                            <label class="input-group-text" for="confirmPassword">
+                            <label class="input-group-text" for="password_confirmation" style="cursor: pointer;">
                                 <i class="fa-solid fa-lock"></i>
                             </label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Ulangi password">
+                            <input type="password" class="form-control" id="password_confirmation" placeholder="Ulangi password">
                         </div>
                     </div>
-
-                    <!-- Role -->
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Pilih Role</label>
-                        <div class="input-group">
-                            <label class="input-group-text" for="role">
-                                <i class="fa-solid fa-user-shield"></i>
-                            </label>
-                            <select id="role" class="form-select">
-                                <option value="" selected disabled>Pilih Role</option>
-                                <option value="warga">Warga</option>
-                                <option value="dokter">Dokter</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Tombol Daftar -->
                     <div class="d-grid mb-3">
-                        <button type="submit" class="btn btn-login1">Daftar</button>
+                        <button type="submit" class="btn btn-login1">Register</button>
                     </div>
                     <p class="text-center">Sudah punya akun? <a href="/login">Login</a></p>
                 </form>
@@ -92,11 +71,11 @@
         body {
             background-color: #f4f4f4;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-top: 80px; /* ✅ Tambahkan jarak biar form gak ketutup navbar */
         }
 
         .login-container {
             min-height: 100vh;
+            margin-top: 65px; /* 🔥 Tambahin jarak dari navbar */
         }
 
         .left-card {
@@ -123,8 +102,7 @@
             animation: fadeInRight 1s ease-in-out;
         }
 
-        .form-control:focus,
-        .form-select:focus {
+        .form-control:focus {
             border-color: #2C9AB7;
             box-shadow: 0 0 0 0.2rem rgba(44, 154, 183, 0.25);
         }
@@ -146,8 +124,7 @@
             border-right: 0;
         }
 
-        .input-group .form-control,
-        .input-group .form-select {
+        .input-group .form-control {
             border-left: 0;
         }
 
