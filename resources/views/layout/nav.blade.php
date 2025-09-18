@@ -68,7 +68,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
+            <a class="navbar-brand fw-bold" href="/">
                 <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo" width="30" class="me-2">
                 Puskesmas Digital
             </a>

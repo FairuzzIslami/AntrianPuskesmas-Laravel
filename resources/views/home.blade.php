@@ -127,9 +127,6 @@
     </head>
 
     <body>
-        <!-- Navbar -->
-        @extends('layout.nav')
-
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="container">
