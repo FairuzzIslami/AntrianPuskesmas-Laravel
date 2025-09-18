@@ -6,7 +6,7 @@
 
             <!-- Bagian kiri -->
             <div class="col-md-6 left-card text-center">
-                <img src="{{asset('asset/img/logo.jpg')}}" alt="Logo Puskesmas">
+                <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo Puskesmas">
                 <h2 class="fw-bold">Puskesmas</h2>
                 <p>Layanan kesehatan cepat, aman, dan terpercaya</p>
             </div>
@@ -14,7 +14,7 @@
             <!-- Bagian kanan (Form Register) -->
             <div class="col-md-6 right-card">
                 <div class="text-center">
-                    <h3 class="mb-2 fw-bold">Form Registrasi</h3>
+                    <h3 class="mb-2 fw-bold">Registrasi Form </h3>
                     <p class="text-muted small">Isi data di bawah untuk membuat akun baru.</p>
                 </div>
                 <form>
@@ -55,7 +55,8 @@
                             <label class="input-group-text" for="password_confirmation" style="cursor: pointer;">
                                 <i class="fa-solid fa-lock"></i>
                             </label>
-                            <input type="password" class="form-control" id="password_confirmation" placeholder="Ulangi password">
+                            <input type="password" class="form-control" id="password_confirmation"
+                                placeholder="Ulangi password">
                         </div>
                     </div>
                     <div class="d-grid mb-3">
@@ -75,7 +76,8 @@
 
         .login-container {
             min-height: 100vh;
-            margin-top: 65px; /* 🔥 Tambahin jarak dari navbar */
+            margin-top: 65px;
+            /* 🔥 Tambahin jarak dari navbar */
         }
 
         .left-card {
