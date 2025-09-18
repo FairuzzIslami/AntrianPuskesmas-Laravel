@@ -252,10 +252,10 @@
                     <div class="col-lg-3 col-md-6">
                         <h5 class="fw-bold mb-3 text-white">Menu</h5>
                         <ul class="list-unstyled">
-                            <li><a href="#home" class="text-decoration-none text-white d-block mb-2">Beranda</a></li>
-                            <li><a href="#tentang" class="text-decoration-none text-white d-block mb-2">Tentang</a></li>
+                            <li><a href="/" class="text-decoration-none text-white d-block mb-2">Beranda</a></li>
+                            <li><a href="/tentang" class="text-decoration-none text-white d-block mb-2">Tentang</a></li>
                             <li><a href="#fitur" class="text-decoration-none text-white d-block mb-2">Fitur</a></li>
-                            <li><a href="#kontak" class="text-decoration-none text-white d-block mb-2">Kontak</a></li>
+                            <li><a href="/kontak" class="text-decoration-none text-white d-block mb-2">Kontak</a></li>
                         </ul>
                     </div>
 

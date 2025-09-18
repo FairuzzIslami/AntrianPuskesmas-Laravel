@@ -74,10 +74,10 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="card shadow h-100 text-dark">
-                            <img src="{{ asset('asset/img/dokter_umum.jpeg') }}" class="card-img-top doctor-img"
+                            <img src="{{ asset('asset/img/dokter1.jpeg') }}" class="card-img-top doctor-img"
                                 alt="Dokter Umum">
                             <div class="card-body text-center">
-                                <h5 class="fw-bold">dr. Andi</h5>
+                                <h5 class="fw-bold">drg Sri Lestari Handayani</h5>
                                 <p class="mb-1"><span class="badge bg-primary">Poli Umum</span></p>
                                 <p class="text-muted mb-1">Senin – Jumat | 08.00 – 16.00</p>
                                 <p class="small">Dokter umum dengan pengalaman >10 tahun.</p>
@@ -86,10 +86,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow h-100 text-dark">
-                            <img src="{{ asset('asset/img/dokter_gigi.jpeg') }}" class="card-img-top doctor-img"
+                            <img src="{{ asset('asset/img/dokter2.png') }}" class="card-img-top doctor-img"
                                 alt="Dokter Gigi">
                             <div class="card-body text-center">
-                                <h5 class="fw-bold">drg. Sinta</h5>
+                                <h5 class="fw-bold">S. Wahyu Utama, S.Kep</h5>
                                 <p class="mb-1"><span class="badge bg-success">Poli Gigi</span></p>
                                 <p class="text-muted mb-1">Selasa & Kamis | 09.00 – 15.00</p>
                                 <p class="small">Spesialis kesehatan gigi & mulut.</p>
@@ -100,7 +100,7 @@
                         <div class="card shadow h-100 text-dark">
                             <img src="{{ asset('asset/img/bidan.jpeg') }}" class="card-img-top doctor-img" alt="Bidan Rani">
                             <div class="card-body text-center">
-                                <h5 class="fw-bold">Bidan Rani</h5>
+                                <h5 class="fw-bold">Bidan Puan</h5>
                                 <p class="mb-1"><span class="badge bg-danger">Poli KIA</span></p>
                                 <p class="text-muted mb-1">Setiap Hari | 08.00 – 13.00</p>
                                 <p class="small">Berpengalaman dalam pemeriksaan kehamilan & imunisasi.</p>
@@ -118,7 +118,7 @@
                         <div class="org-node mx-auto bg-primary text-white">
                             <i class="bi bi-person-badge fs-1"></i>
                             <h5 class="fw-bold mt-2">Kepala Puskesmas</h5>
-                            <p class="mb-0">dr. Bambang</p>
+                            <p class="mb-0">drg Sri Lestari Handayani</p>
                         </div>
                     </div>
 
@@ -220,10 +220,10 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="fw-bold mb-3 text-white">Menu</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#home" class="text-decoration-none text-white d-block mb-2">Beranda</a></li>
-                        <li><a href="#tentang" class="text-decoration-none text-white d-block mb-2">Tentang</a></li>
+                        <li><a href="/" class="text-decoration-none text-white d-block mb-2">Beranda</a></li>
+                        <li><a href="/tentang" class="text-decoration-none text-white d-block mb-2">Tentang</a></li>
                         <li><a href="#fitur" class="text-decoration-none text-white d-block mb-2">Fitur</a></li>
-                        <li><a href="#kontak" class="text-decoration-none text-white d-block mb-2">Kontak</a></li>
+                        <li><a href="/kontak" class="text-decoration-none text-white d-block mb-2">Kontak</a></li>
                     </ul>
                 </div>
 
