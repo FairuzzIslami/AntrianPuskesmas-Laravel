@@ -5,7 +5,7 @@
     <section id="kontak" class="py-5 bg-light">
         <div class="container">
             <!-- Heading -->
-            <div class="row text-center mb-5">
+            <div class="row text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
                 <h2 class="fw-bold text-primary">Kontak Kami</h2>
                 <p class="text-muted">Hubungi kami atau kunjungi lokasi kami</p>
                 <div class="mx-auto"
@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4" data-aos="fade-up-right" data-aos-duration="1000">
                 <!-- Kiri: Info Kontak & Sosial Media -->
                 <div class="col-lg-6">
                     <div class="bg-white p-4 rounded shadow-sm h-100 contact-card">
@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Kanan: Lokasi / Google Maps -->
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-up-left" data-aos-duration="1000">
                     <div class="bg-white p-2 rounded shadow-sm h-100">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126918.5749076267!2d106.689429!3d-6.229728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e5c7046a0f%3A0x301576d14feb!2sPuskesmas!5e0!3m2!1sid!2sid!4v1234567890"

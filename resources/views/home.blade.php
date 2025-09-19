@@ -131,7 +131,7 @@
         <section class="hero-section">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
                         <h1 class="display-4 fw-bold mb-4">Solusi Terbaik untuk Layanan Kesehatan Digital Anda</h1>
                         <p class="lead mb-5">Kami hadir dengan solusi antrian digital terbaik untuk mendukung kebutuhan
                             layanan kesehatan Anda. Proses aman, pengelolaan mudah, dan akses yang responsif kapan saja.
@@ -145,7 +145,7 @@
 
         <!-- Features Section -->
         <section class="py-5">
-            <div class="container">
+            <div class="container" data-aos="fade-down" data-aos-duration="1500">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold">Mengapa Memilih Layanan Kami?</h2>
                     <p class="text-muted">Kami memberikan pengalaman terbaik dalam pengambilan antrian puskesmas</p>
@@ -195,7 +195,7 @@
 
         <!-- How It Works -->
         <section class="py-5 bg-light">
-            <div class="container">
+            <div class="container" data-aos="fade-up" data-aos-duration="1000">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold">Cara Menggunakan Layanan</h2>
                     <p class="text-muted">Hanya dengan 3 langkah mudah, dapatkan antrian Anda</p>
