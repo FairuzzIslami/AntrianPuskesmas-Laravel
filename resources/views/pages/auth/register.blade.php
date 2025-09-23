@@ -59,6 +59,15 @@
                                 placeholder="Ulangi password">
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Pilih Role</label>
+                        <select class="form-select" name="role" id="role" required>
+                            <option value="">-- Pilih Role --</option>
+                            <option value="pasien">Pasien</option>
+                            <option value="dokter">Dokter</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-login1">Register</button>
                     </div>
