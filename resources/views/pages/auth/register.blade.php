@@ -1,8 +1,8 @@
-@extends('layout.layout')
+@extends('layout.guest')
 
 @section('content')
-    <div class="container login-container d-flex align-items-center justify-content-center">
-        <div class="row w-100 shadow-lg rounded-4 overflow-hidden" style="max-width: 900px;">
+    <div class="container login-container d-flex align-items-center justify-content-center py-5">
+        <div class="row w-100 shadow-lg rounded-4 overflow-hidden" style="max-width: 850px;">
 
             <!-- Bagian kiri -->
             <div class="col-md-6 left-card text-center">

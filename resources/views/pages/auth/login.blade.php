@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.guest')
 
 @section('content')
     <div class="container login-container d-flex align-items-center justify-content-center">
