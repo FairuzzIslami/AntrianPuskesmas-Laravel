@@ -77,7 +77,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('/') ? 'active active-nav' : '' }}" href="/">Home</a>
                     </li>
@@ -93,10 +93,10 @@
                         <a class="nav-link {{ Request::is('kontak') ? 'active active-nav' : '' }}"
                             href="/kontak">Kontak</a>
                     </li>
+                    <li class="ms-lg-3 mt-3 mt-lg-0">
+                        <a href="/login" class="btn btn-login">Login</a>
+                    </li>
                 </ul>
-                <div class="ms-lg-3 mt-3 mt-lg-0">
-                    <a href="/login" class="btn btn-login">Login</a>
-                </div>
             </div>
         </div>
     </nav>
