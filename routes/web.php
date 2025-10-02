@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\PasienController;
 
 /*
@@ -42,6 +43,14 @@ Route::post('/logout', [LoginController::class, 'logout'])
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth');
+
+// ----------------- ADMIN ------------------ //
+// Halaman dashboard ADMIN
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dokter', [AdminController::class, 'dokter'])->name('admin.dokter');
+    Route::get('/laporan', [AdminController::class, 'laporan'])->name('admin.laporan');
+});
 
 // ----------------- PASIEN ------------------ //
 // Halaman dashboard pasien
