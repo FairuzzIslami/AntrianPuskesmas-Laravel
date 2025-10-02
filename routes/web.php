@@ -1,39 +1,50 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasienController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Di sini kita mendaftarkan semua route web aplikasi.
+| Route ini akan dimuat oleh RouteServiceProvider.
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// ----------------- HALAMAN UMUM ------------------ //
+Route::get('/', fn() => view('home'))->name('home');
+Route::get('/tentang', fn() => view('tentang'))->name('tentang');
+Route::get('/kontak', fn() => view('kontak'))->name('kontak');
+Route::get('/fitur', fn() => view('fitur'))->name('fitur');
 
-Route::get('/tentang', function () {
-    return view('tentang');
-});
+// ----------------- AUTH ------------------ //
+// Register
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])
+    ->name('register.form');
+Route::post('/register', [RegisterController::class, 'register'])
+    ->name('register');
 
-Route::get('/kontak', function () {
-    return view('kontak');
-});
+// Login
+Route::get('/login', [LoginController::class, 'showLoginForm'])
+    ->name('login.form');
+Route::post('/login', [LoginController::class, 'login'])
+    ->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->name('logout');
 
-Route::get('/fitur', function () {
-    return view('fitur');
-});
+// ----------------- DASHBOARD ------------------ //
+// Dashboard utama → cek role di DashboardController
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard')
+    ->middleware('auth');
 
-
-Route::get('/login', function () {
-    return view('pages.auth.login');
-});
-
-Route::get('/register', function () {
-    return view('pages.auth.register');
-});
+// ----------------- PASIEN ------------------ //
+// Halaman dashboard pasien
+Route::get('/pasien', [PasienController::class, 'index'])
+    ->name('pasien.beranda')
+    ->middleware('auth');

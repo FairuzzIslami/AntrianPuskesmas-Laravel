@@ -6,7 +6,7 @@
 
             <!-- Bagian kiri -->
             <div class="col-md-6 left-card text-center">
-                <img src="{{asset('asset/img/logo.jpg')}}" alt="Logo Puskesmas">
+                <img src="{{ asset('asset/img/logo.jpg') }}" alt="Logo Puskesmas">
                 <h2 class="fw-bold">Puskesmas</h2>
                 <p>Layanan kesehatan cepat, aman, dan terpercaya</p>
             </div>
@@ -17,7 +17,8 @@
                     <h3 class="mb-4 fw-bold">Login Form</h3>
                     <p class="text-muted small">Masukkan akun Anda yang sudah terdaftar.</p>
                 </div>
-                <form>
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
@@ -25,7 +26,8 @@
                             <label for="email" class="input-group-text" style="cursor:pointer;">
                                 <i class="fa-solid fa-envelope"></i>
                             </label>
-                            <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+                            <input type="email" name="email" class="form-control" id="email"
+                                   placeholder="Masukkan email" required>
                         </div>
                     </div>
                     <!-- Password -->
@@ -35,7 +37,8 @@
                             <label class="input-group-text" for="password" style="cursor: pointer;">
                                 <i class="fa-solid fa-lock"></i>
                             </label>
-                            <input type="password" class="form-control" id="password" placeholder="Masukkan password">
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Masukkan password" required>
                             <label class="input-group-text toggle-password">
                                 <i class="fa-solid fa-eye"></i>
                             </label>
@@ -44,7 +47,7 @@
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-login1">Login</button>
                     </div>
-                    <p class="text-center">Belum punya akun? <a href="/register">Daftar</a></p>
+                    <p class="text-center">Belum punya akun? <a href="{{ route('register.form') }}">Daftar</a></p>
                 </form>
             </div>
         </div>
@@ -89,7 +92,7 @@
         }
 
         .btn-login1 {
-           background: linear-gradient(135deg, var(--biru) 0%, var(--hijau) 100%);
+            background: linear-gradient(135deg, var(--biru) 0%, var(--hijau) 100%);
             color: #fff;
             font-weight: 600;
             transition: 0.3s;
@@ -112,6 +115,7 @@
         .toggle-password {
             cursor: pointer;
         }
+
         a {
             color: #2C9AB7;
         }
