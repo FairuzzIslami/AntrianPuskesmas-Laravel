@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'role'     => 'pasien', 
         ]);
 
-        auth()->login($user);
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
 
         // Redirect sesuai role
         if ($user->role === 'pasien') {
