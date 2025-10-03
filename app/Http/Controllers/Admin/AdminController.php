@@ -9,14 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard_admin');
-    }
-
-    // Kelola Dokter
-    public function dokter()
-    {
-        $dokter = User::where('role', 'dokter')->get(); 
-        return view('admin.dokter', compact('dokter'));
+        return view('admin.dashboard');
     }
 
     // Kelola Laporan

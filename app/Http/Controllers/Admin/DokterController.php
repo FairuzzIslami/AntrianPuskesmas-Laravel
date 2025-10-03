@@ -26,7 +26,16 @@ class DokterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6'
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.max' => 'Nama maksimal 255 karakter.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah digunakan.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 6 karakter.'
         ]);
+
 
         User::create([
             'name' => $request->name,
@@ -50,8 +59,17 @@ class DokterController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,'.$dokter->id,
+            'email' => 'required|email|unique:users,email,' . $dokter->id,
+            'password' => 'nullable|min:6',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.max' => 'Nama maksimal 255 karakter.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah digunakan.',
+            'password.min' => 'Password minimal 6 karakter.',
         ]);
+
 
         $dokter->update([
             'name' => $request->name,
