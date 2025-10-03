@@ -5,9 +5,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\DokterController;
+use App\Http\Controllers\Admin\DokterController as AdminDokterController;
 use App\Http\Controllers\PasienController;
-
+use App\Http\Controllers\DokterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,15 +46,14 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth');
 
 // ----------------- ADMIN ------------------ //
-// Halaman dashboard ADMIN
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/dokter', [DokterController::class, 'index'])->name('admin.dokter');
-    Route::get('/dokter/create', [DokterController::class, 'create'])->name('admin.dokter.create');
-    Route::post('/dokter', [DokterController::class, 'store'])->name('admin.dokter.store');
-    Route::get('/dokter/{id}/edit', [DokterController::class, 'edit'])->name('admin.dokter.edit');
-    Route::put('/dokter/{id}', [DokterController::class, 'update'])->name('admin.dokter.update');
-    Route::delete('/dokter/{id}', [DokterController::class, 'destroy'])->name('admin.dokter.destroy');
+    Route::get('/dokter', [AdminDokterController::class, 'index'])->name('admin.dokter');
+    Route::get('/dokter/create', [AdminDokterController::class, 'create'])->name('admin.dokter.create');
+    Route::post('/dokter', [AdminDokterController::class, 'store'])->name('admin.dokter.store');
+    Route::get('/dokter/{id}/edit', [AdminDokterController::class, 'edit'])->name('admin.dokter.edit');
+    Route::put('/dokter/{id}', [AdminDokterController::class, 'update'])->name('admin.dokter.update');
+    Route::delete('/dokter/{id}', [AdminDokterController::class, 'destroy'])->name('admin.dokter.destroy');
     Route::get('/laporan', [AdminController::class, 'laporan'])->name('admin.laporan');
 });
 
@@ -63,3 +62,32 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::get('/pasien', [PasienController::class, 'index'])
     ->name('pasien.beranda')
     ->middleware('auth');
+
+
+// ----------------- DOKTER ------------------ //
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dokter/dashboard', [DokterController::class, 'dashboard'])
+        ->name('dokter.dashboard');
+});
+
+// Dashboard Dokter
+Route::get('/dokter/dashboard', function () {
+    return view('dokter.dashboard');
+})->name('dokter.dashboard');
+
+// Daftar Pasien
+
+Route::prefix('dokter')->name('dokter.')->group(function() {
+    Route::get('/dashboard', [DokterController::class, 'dashboard'])->name('dashboard');
+    Route::get('/daftar-pasien', [DokterController::class, 'daftarPasien'])->name('daftar-pasien');
+    Route::get('/pemanggilan', [DokterController::class, 'pemanggilan'])->name('pemanggilan');
+    Route::get('/catatan-medis', [DokterController::class, 'catatanMedis'])->name('catatan-medis');
+});
+
+Route::prefix('dokter')->group(function () {
+    Route::get('pemanggilan', [DokterController::class, 'pemanggilan'])->name('dokter.pemanggilan');
+    Route::post('pemanggilan/panggil/{id}', [DokterController::class, 'panggil'])->name('dokter.panggil');
+    Route::post('pemanggilan/selesai/{id}', [DokterController::class, 'selesai'])->name('dokter.selesai');
+    Route::delete('pemanggilan/hapus/{id}', [DokterController::class, 'hapus'])->name('dokter.hapus');
+
+});
