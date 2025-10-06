@@ -65,29 +65,12 @@ Route::get('/pasien', [PasienController::class, 'index'])
 
 
 // ----------------- DOKTER ------------------ //
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dokter/dashboard', [DokterController::class, 'dashboard'])
-        ->name('dokter.dashboard');
-});
-
-// Dashboard Dokter
-Route::get('/dokter/dashboard', function () {
-    return view('dokter.dashboard');
-})->name('dokter.dashboard');
-
-// Daftar Pasien
-
-Route::prefix('dokter')->name('dokter.')->group(function() {
+Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DokterController::class, 'dashboard'])->name('dashboard');
     Route::get('/daftar-pasien', [DokterController::class, 'daftarPasien'])->name('daftar-pasien');
     Route::get('/pemanggilan', [DokterController::class, 'pemanggilan'])->name('pemanggilan');
+    Route::post('/pemanggilan/panggil/{id}', [DokterController::class, 'panggil'])->name('panggil');
+    Route::post('/pemanggilan/selesai/{id}', [DokterController::class, 'selesai'])->name('selesai');
+    Route::delete('/pemanggilan/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus');
     Route::get('/catatan-medis', [DokterController::class, 'catatanMedis'])->name('catatan-medis');
-});
-
-Route::prefix('dokter')->group(function () {
-    Route::get('pemanggilan', [DokterController::class, 'pemanggilan'])->name('dokter.pemanggilan');
-    Route::post('pemanggilan/panggil/{id}', [DokterController::class, 'panggil'])->name('dokter.panggil');
-    Route::post('pemanggilan/selesai/{id}', [DokterController::class, 'selesai'])->name('dokter.selesai');
-    Route::delete('pemanggilan/hapus/{id}', [DokterController::class, 'hapus'])->name('dokter.hapus');
-
 });
