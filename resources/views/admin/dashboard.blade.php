@@ -35,6 +35,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- Card Tambahan (opsional, misalnya Statistik) -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-bar-chart-line fs-1 text-warning"></i>
+                    </div>
+                    <h5 class="card-title">Statistik</h5>
+                    <p class="text-muted">Lihat ringkasan data antrian puskesmas.</p>
+                    <a href="#" class="btn btn-warning w-100">Lihat</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
