@@ -7,9 +7,10 @@ use App\Models\User;
 
 class PasienController extends Controller
 {
-
-
-    public function index()
+    // ==============================
+    // DAFTAR PASIEN UNTUK DOKTER
+    // ==============================
+    public function daftarPasien()
     {
         // Ambil semua pasien
         $pasiens = User::where('role', 'pasien')->orderBy('created_at', 'asc')->get();
@@ -21,7 +22,6 @@ class PasienController extends Controller
         $dalamPemeriksaan = $pasiens->where('status_antrian', 'dalam pemeriksaan')->count();
         $selesai = $pasiens->where('status_antrian', 'selesai')->count();
 
-        // Kirim data ke view
         return view('dokter.daftar-pasien', compact(
             'pasiens',
             'totalPasien',
@@ -32,9 +32,6 @@ class PasienController extends Controller
         ));
     }
 
-
-
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -44,7 +41,7 @@ class PasienController extends Controller
 
         $validated['role'] = 'pasien';
         $validated['status_antrian'] = 'menunggu';
-        $validated['password'] = bcrypt('password'); // default password biar bisa login jika perlu
+        $validated['password'] = bcrypt('password');
 
         User::create($validated);
 
@@ -80,17 +77,16 @@ class PasienController extends Controller
 
         return redirect()->back()->with('success', 'Pemeriksaan selesai.');
     }
+
     // ==============================
-    // HALAMAN BERANDA PASIEN
+    // BERANDA PASIEN
     // ==============================
-    public function index()
+    public function beranda()
     {
-        // Ambil data dokter dari database berdasarkan nama (karena belum ada kolom 'poli')
         $dokterUmum = User::where('role', 'dokter')->where('name', 'Zulfiadi')->first();
         $dokterGigi = User::where('role', 'dokter')->where('name', 'dokter 1')->first();
         $dokterAnak = User::where('role', 'dokter')->where('name', 'dokter 2')->first();
 
-        // Format data dokter untuk beranda
         $formattedDokterUmum = $dokterUmum ? [
             'nama' => $dokterUmum->name,
             'email' => $dokterUmum->email,
@@ -117,7 +113,6 @@ class PasienController extends Controller
             'formattedDokterGigi', 
             'formattedDokterAnak'
         ));
-
     }
 
     // ==============================
@@ -127,7 +122,6 @@ class PasienController extends Controller
     {
         $user = auth()->user() ?? (object)['id' => 1, 'name' => 'Pasien Umum'];
 
-        // Data antrian dummy
         $antrianAktif = (object)[
             'nomor_antrian' => 7,
             'status' => 'menunggu'
@@ -145,10 +139,8 @@ class PasienController extends Controller
             (object)['nomor_antrian' => 8, 'status' => 'menunggu'],
         ]);
 
-        // Ambil dokter jaga poli anak berdasarkan nama
         $dokterJaga = User::where('role', 'dokter')->where('name', 'dokter 2')->first();
 
-        // Format data sebelum dikirim ke view
         $formattedDokter = $dokterJaga ? [
             'nama' => $dokterJaga->name,
             'email' => $dokterJaga->email,
@@ -199,10 +191,8 @@ class PasienController extends Controller
             (object)['nomor_antrian' => 5, 'status' => 'menunggu'],
         ]);
 
-        // Ambil dokter jaga poli gigi berdasarkan nama
         $dokterJaga = User::where('role', 'dokter')->where('name', 'dokter 1')->first();
 
-        // Format data sebelum dikirim ke view
         $formattedDokter = $dokterJaga ? [
             'nama' => $dokterJaga->name,
             'email' => $dokterJaga->email,
@@ -254,10 +244,8 @@ class PasienController extends Controller
             (object)['nomor_antrian' => 12, 'status' => 'menunggu'],
         ]);
 
-        // Ambil dokter jaga poli umum berdasarkan nama
         $dokterJaga = User::where('role', 'dokter')->where('name', 'Zulfiadi')->first();
 
-        // Format data sebelum dikirim ke view
         $formattedDokter = $dokterJaga ? [
             'nama' => $dokterJaga->name,
             'email' => $dokterJaga->email,

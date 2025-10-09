@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\DokterController as AdminDokterController;
+use App\Http\Controllers\CatatanMedisController;
+
 
 // ----------------- HALAMAN UMUM ------------------ //
 Route::get('/', fn() => view('home'))->name('home');
@@ -45,7 +47,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/dokter/{id}', [DokterController::class, 'update'])->name('admin.dokter.update');
     Route::delete('/admin/dokter/{id}', [DokterController::class, 'destroy'])->name('admin.dokter.destroy');
     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
-
 });
 
 
@@ -80,29 +81,22 @@ Route::post('/dokter/mulai/{id}', [PasienController::class, 'mulaiPemeriksaan'])
 Route::post('/dokter/selesai/{id}', [PasienController::class, 'selesai'])->name('dokter.selesai');
 
 
+
 // ----------------- DOKTER ------------------ //
 Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DokterController::class, 'dashboard'])->name('dashboard');
     Route::get('/daftar-pasien', [DokterController::class, 'daftarPasien'])->name('daftar-pasien');
-    
-    // Group pemanggilan-related routes
-    Route::prefix('pemanggilan')->name('pemanggilan.')->group(function () {
-        Route::get('/', [DokterController::class, 'pemanggilan'])->name('index');
+
+    // Pemanggilan pasien
+    Route::prefix('pemanggilan')->group(function () {
+        Route::get('/', [DokterController::class, 'pemanggilan'])->name('pemanggilan'); // ini route yang dipakai di blade
         Route::post('/panggil/{id}', [DokterController::class, 'panggil'])->name('panggil');
         Route::post('/selesai/{id}', [DokterController::class, 'selesai'])->name('selesai');
         Route::delete('/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus');
     });
-    
+
+    // Catatan medis
     Route::get('/catatan-medis', [DokterController::class, 'catatanMedis'])->name('catatan-medis');
-
+    Route::get('/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'create'])->name('catatan-medis.create');
+    Route::post('/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'store'])->name('catatan-medis.store');
 });
-
-use App\Http\Controllers\CatatanMedisController;
-
-Route::get('/dokter/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'create'])
-    ->name('dokter.catatan-medis.create');
-
-Route::post('/dokter/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'store'])
-    ->name('dokter.catatan-medis.store');
-
-
