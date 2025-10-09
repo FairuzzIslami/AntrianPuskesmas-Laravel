@@ -9,36 +9,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        html,
-        body {
-            height: 100%;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            flex: 1;
-        }
-
         .navbar {
-            background: linear-gradient(90deg, #198754, #20c997);
-            /* hijau tua → hijau toska */
-        }
-
-        .navbar-brand {
-            font-weight: bold;
+            background: linear-gradient(90deg, #157347, #20c997);
         }
 
         .nav-link {
-            color: #fff !important;
+            position: relative;
+            transition: color 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: #d1e7dd !important;
-            /* hijau muda pas hover */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d1e7dd;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-brand span {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar.shadow-sm {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -53,33 +54,51 @@
 
 <body>
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="{{ route('admin.dashboard') }}">
-                <i class="bi bi-hospital"></i> Puskesmas Admin
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center text-white" href="{{ route('admin.dashboard') }}">
+                <i class="bi bi-hospital me-2 fs-4"></i>
+                <span>Puskesmas Admin</span>
             </a>
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+
+            <!-- Tombol toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span> 
+                <i class="bi bi-list text-white fs-3"></i>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-center justify-content-lg-end" id="navbarAdmin">
-                <ul class="navbar-nav text-center">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i
-                                class="bi bi-speedometer2"></i> Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.dokter') }}"><i
-                                class="bi bi-person-badge"></i> Kelola Dokter</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.laporan') }}"><i
-                                class="bi bi-file-earmark-text"></i> Kelola Laporan</a></li>
-                    <li class="nav-item">
-                        <form method="POST" action="{{ route('logout') }}">
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarAdmin">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-white {{ Request::is('admin/dashboard') ? 'fw-bold' : '' }}"
+                            href="{{ route('admin.dashboard') }}">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-white {{ Request::is('admin/dokter') ? 'fw-bold' : '' }}"
+                            href="{{ route('admin.dokter') }}">
+                            Dokter
+                        </a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link text-white {{ Request::is('admin/laporan') ? 'fw-bold' : '' }}"
+                            href="{{ route('admin.laporan') }}">
+                            Laporan
+                        </a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center ms-lg-3">
+                        <form method="POST" action="{{ route('logout') }}" class="m-0">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-light ms-2">
-                                <i class="bi bi-box-arrow-right"></i> Logout
+                            <button type="submit" class="btn btn-outline-light btn-sm d-flex align-items-center">
+                                <i class="bi bi-box-arrow-right me-1"></i> Logout
                             </button>
                         </form>
                     </li>
+
                 </ul>
             </div>
         </div>

@@ -12,20 +12,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * Nama tabel yang digunakan (opsional jika tabel = 'users')
-     */
-    protected $table = 'users'; // ubah jadi 'pengguna' jika tabel kamu bernama 'pengguna'
-
-    /**
      * Kolom yang bisa diisi mass-assignment
      */
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role', //  peran pengguna (admin, dokter, pasien, dsb)
-        'poli', // tambahan poli agar bisa disimpan & diambil di controller
-        'status_antrian', 
+        'role', // 🔥 tambahkan role
     ];
 
     /**

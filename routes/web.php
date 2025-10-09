@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\DokterController as AdminDokterController;
-use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\DokterController as AdminDokterController;
 
 // ----------------- HALAMAN UMUM ------------------ //
 Route::get('/', fn() => view('home'))->name('home');

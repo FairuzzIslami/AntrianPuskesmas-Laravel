@@ -21,7 +21,7 @@
             @empty
                 <tr>
                     <td colspan="2" class="text-center">Belum ada laporan</td>
-                 </tr>
+                </tr>
             @endforelse
         </tbody>
     </table>
