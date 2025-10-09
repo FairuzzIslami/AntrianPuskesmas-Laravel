@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container-fluid py-4 animate__animated animate__fadeIn">
-        <!-- Header dengan Statistik -->
+
+        <!-- Header -->
         <div class="row mb-4">
             <div class="col-12">
                 <div class="card shadow border-0 rounded-4 overflow-hidden">
@@ -26,54 +27,38 @@
 
         <!-- Statistik Cepat -->
         <div class="row g-4 mb-4">
-            <div class="col-xl-3 col-md-6">
-                <div class="card stat-card border-0 shadow-sm bg-light-green">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-success text-uppercase fw-bold mb-1">Menunggu</h6>
-                            <h4 class="fw-bold mb-0">{{ $pasien->where('status_antrian', 'menunggu')->count() }}</h4>
-                        </div>
-                        <i class="fas fa-clock fa-2x text-success"></i>
-                    </div>
-                </div>
-            </div>
+            @php
+                $statusList = [
+                    ['label' => 'Menunggu', 'icon' => 'fa-clock', 'color' => 'text-success', 'value' => 'menunggu'],
+                    ['label' => 'Dipanggil', 'icon' => 'fa-bell', 'color' => 'text-success', 'value' => 'dipanggil'],
+                    [
+                        'label' => 'Dalam Pemeriksaan',
+                        'icon' => 'fa-stethoscope',
+                        'color' => 'text-success',
+                        'value' => 'dalam pemeriksaan',
+                    ],
+                    [
+                        'label' => 'Selesai',
+                        'icon' => 'fa-check-circle',
+                        'color' => 'text-success',
+                        'value' => 'selesai',
+                    ],
+                ];
+            @endphp
 
-            <div class="col-xl-3 col-md-6">
-                <div class="card stat-card border-0 shadow-sm bg-light-green">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-success text-uppercase fw-bold mb-1">Dipanggil</h6>
-                            <h4 class="fw-bold mb-0">{{ $pasien->where('status_antrian', 'dipanggil')->count() }}</h4>
+            @foreach ($statusList as $s)
+                <div class="col-xl-3 col-md-6">
+                    <div class="card stat-card border-0 shadow-sm bg-light-green">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="{{ $s['color'] }} text-uppercase fw-bold mb-1">{{ $s['label'] }}</h6>
+                                <h4 class="fw-bold mb-0">{{ $pasien->where('status_antrian', $s['value'])->count() }}</h4>
+                            </div>
+                            <i class="fas {{ $s['icon'] }} fa-2x {{ $s['color'] }}"></i>
                         </div>
-                        <i class="fas fa-bell fa-2x text-success"></i>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6">
-                <div class="card stat-card border-0 shadow-sm bg-light-green">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-success text-uppercase fw-bold mb-1">Dalam Pemeriksaan</h6>
-                            <h4 class="fw-bold mb-0">{{ $pasien->where('status_antrian', 'dalam_pemeriksaan')->count() }}
-                            </h4>
-                        </div>
-                        <i class="fas fa-stethoscope fa-2x text-success"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6">
-                <div class="card stat-card border-0 shadow-sm bg-light-green">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-success text-uppercase fw-bold mb-1">Selesai</h6>
-                            <h4 class="fw-bold mb-0">{{ $pasien->where('status_antrian', 'selesai')->count() }}</h4>
-                        </div>
-                        <i class="fas fa-check-circle fa-2x text-success"></i>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- Filter dan Pencarian -->
@@ -86,10 +71,12 @@
                             <option value="">Semua Status</option>
                             <option value="menunggu">Menunggu</option>
                             <option value="dipanggil">Dipanggil</option>
-                            <option value="dalam_pemeriksaan">Dalam Pemeriksaan</option>
+                            <option value="dalam pemeriksaan">Dalam Pemeriksaan</option>
                             <option value="selesai">Selesai</option>
                         </select>
                     </div>
+
+
                     <div class="col-md-6">
                         <label class="form-label fw-bold text-success">Cari Pasien</label>
                         <div class="input-group">
@@ -99,6 +86,7 @@
                             <input type="text" class="form-control border-success" id="searchInput"
                                 placeholder="Cari nama atau email...">
                         </div>
+
                     </div>
                     <div class="col-md-2">
                         <button class="btn btn-success w-100" id="resetFilter">
@@ -114,6 +102,7 @@
             <div class="card-header bg-success text-white rounded-top-4">
                 <h5 class="fw-bold mb-0"><i class="fas fa-list me-2"></i>Daftar Pasien</h5>
             </div>
+
             <div class="card-body p-0">
                 @if ($pasien->isEmpty())
                     <div class="text-center py-5">
@@ -131,7 +120,7 @@
                                     <th>Kontak</th>
                                     <th>Waktu Daftar</th>
                                     <th>Status</th>
-                                    <th class="text-center">Aksi</th>
+                                    <th>Aksi</th> <!-- Tambah kolom aksi -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -147,7 +136,8 @@
                                                 <div>
                                                     <h6 class="mb-0 fw-bold">{{ $p->name }}</h6>
                                                     <small class="text-muted">No. RM:
-                                                        {{ $p->no_rm ?? 'RM-' . str_pad($p->id, 6, '0', STR_PAD_LEFT) }}</small>
+                                                        {{ $p->no_rm ?? 'RM-' . str_pad($p->id, 6, '0', STR_PAD_LEFT) }}
+                                                    </small>
                                                 </div>
                                             </div>
                                         </td>
@@ -157,43 +147,36 @@
                                             <small><i
                                                     class="fas fa-phone me-2 text-success"></i>{{ $p->phone ?? '-' }}</small>
                                         </td>
-                                        <td>
-                                            <small class="text-muted">{{ $p->created_at->format('H:i d/m/Y') }}</small>
+                                        <td><small class="text-muted">{{ $p->created_at->format('H:i d/m/Y') }}</small>
                                         </td>
                                         <td>
-                                            @if ($p->status_antrian == 'menunggu')
-                                                <span class="badge bg-warning text-dark"><i
-                                                        class="fas fa-clock me-1"></i>Menunggu</span>
-                                            @elseif($p->status_antrian == 'dipanggil')
-                                                <span class="badge bg-primary"><i
-                                                        class="fas fa-bell me-1"></i>Dipanggil</span>
-                                            @elseif($p->status_antrian == 'dalam_pemeriksaan')
-                                                <span class="badge bg-info"><i class="fas fa-stethoscope me-1"></i>Dalam
-                                                    Pemeriksaan</span>
-                                            @else
-                                                <span class="badge bg-success"><i
-                                                        class="fas fa-check-circle me-1"></i>Selesai</span>
-                                            @endif
+                                            @switch($p->status_antrian)
+                                                @case('menunggu')
+                                                    <span class="badge bg-warning text-dark"><i
+                                                            class="fas fa-clock me-1"></i>Menunggu</span>
+                                                @break
+
+                                                @case('dipanggil')
+                                                    <span class="badge bg-primary"><i class="fas fa-bell me-1"></i>Dipanggil</span>
+                                                @break
+
+                                                @case('dalam pemeriksaan')
+                                                    <span class="badge bg-info text-dark"><i
+                                                            class="fas fa-stethoscope me-1"></i>Dalam Pemeriksaan</span>
+                                                @break
+
+                                                @default
+                                                    <span class="badge bg-success"><i
+                                                            class="fas fa-check-circle me-1"></i>Selesai</span>
+                                            @endswitch
                                         </td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                @if ($p->status_antrian == 'menunggu')
-                                                    <button class="btn btn-success btn-sm call-patient"
-                                                        data-id="{{ $p->id }}" data-name="{{ $p->name }}">
-                                                        <i class="fas fa-bell me-1"></i>Panggil
-                                                    </button>
-                                                @elseif($p->status_antrian == 'dipanggil')
-                                                    <button class="btn btn-info btn-sm start-examination"
-                                                        data-id="{{ $p->id }}">
-                                                        <i class="fas fa-play me-1"></i>Mulai
-                                                    </button>
-                                                @elseif($p->status_antrian == 'dalam_pemeriksaan')
-                                                    <button class="btn btn-success btn-sm finish-examination"
-                                                        data-id="{{ $p->id }}">
-                                                        <i class="fas fa-check me-1"></i>Selesai
-                                                    </button>
-                                                @endif
-                                            </div>
+                                        <td>
+                                            <!-- Tombol Catatan Medis -->
+                                            <a href="{{ route('dokter.catatan-medis.create', $p->id) }}"
+                                                class="btn btn-sm btn-success">
+                                                Catatan Medis
+                                            </a>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -203,8 +186,10 @@
                 @endif
             </div>
         </div>
+
     </div>
 
+    {{-- STYLE --}}
     <style>
         .bg-gradient-success {
             background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%) !important;
@@ -244,4 +229,36 @@
             border-color: #2e7d32 !important;
         }
     </style>
+
+    {{-- SCRIPT FILTER --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusFilter = document.getElementById('statusFilter');
+            const searchInput = document.getElementById('searchInput');
+            const resetFilter = document.getElementById('resetFilter');
+            const rows = document.querySelectorAll('.patient-row');
+
+            function filterTable() {
+                const status = statusFilter.value.toLowerCase();
+                const search = searchInput.value.toLowerCase();
+
+                rows.forEach(row => {
+                    const rowStatus = row.dataset.status?.toLowerCase() || '';
+                    const name = row.querySelector('td:nth-child(2)').innerText.toLowerCase();
+                    const email = row.querySelector('td:nth-child(3)').innerText.toLowerCase();
+                    const matchStatus = !status || rowStatus === status;
+                    const matchSearch = name.includes(search) || email.includes(search);
+                    row.style.display = matchStatus && matchSearch ? '' : 'none';
+                });
+            }
+
+            statusFilter.addEventListener('change', filterTable);
+            searchInput.addEventListener('keyup', filterTable);
+            resetFilter.addEventListener('click', () => {
+                statusFilter.value = '';
+                searchInput.value = '';
+                filterTable();
+            });
+        });
+    </script>
 @endsection

@@ -14,11 +14,13 @@ class DokterController extends Controller
 
     public function daftarPasien()
     {
-        // ambil semua user dengan role 'pasien'
-        $pasien = User::where('role', 'pasien')->get();
+        $pasien = \App\Models\User::where('role', 'pasien')
+            ->orderBy('created_at', 'asc')
+            ->get();
 
         return view('dokter.daftar-pasien', compact('pasien'));
     }
+
 
     public function pemanggilan()
     {

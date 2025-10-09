@@ -151,12 +151,6 @@
                             <span class="nav-icon"><i class="fas fa-bullhorn"></i></span> Pemanggilan
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom {{ request()->routeIs('dokter.catatan-medis*') ? 'active' : '' }}"
-                            href="{{ route('dokter.catatan-medis') }}">
-                            <span class="nav-icon"><i class="fas fa-file-medical"></i></span> Catatan Medis
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="d-flex align-items-center ms-lg-3">

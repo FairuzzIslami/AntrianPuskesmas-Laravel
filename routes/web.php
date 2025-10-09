@@ -63,6 +63,18 @@ Route::get('/pasien', [PasienController::class, 'index'])
     ->name('pasien.beranda')
     ->middleware('auth');
 
+// Halaman manajemen pasien (untuk dokter)
+Route::get('/dokter/pasien', [PasienController::class, 'index'])->name('dokter.pasien.index');
+
+// Simpan data pasien baru
+Route::post('/pasien/store', [PasienController::class, 'store'])->name('pasien.store');
+
+// Update status pasien (opsional)
+Route::post('/pasien/{id}/status', [PasienController::class, 'updateStatus'])->name('pasien.updateStatus');
+Route::post('/dokter/panggil/{id}', [PasienController::class, 'panggil'])->name('dokter.panggil');
+Route::post('/dokter/mulai/{id}', [PasienController::class, 'mulaiPemeriksaan'])->name('dokter.mulai');
+Route::post('/dokter/selesai/{id}', [PasienController::class, 'selesai'])->name('dokter.selesai');
+
 
 // ----------------- DOKTER ------------------ //
 Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () {
@@ -74,3 +86,11 @@ Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () 
     Route::delete('/pemanggilan/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus');
     Route::get('/catatan-medis', [DokterController::class, 'catatanMedis'])->name('catatan-medis');
 });
+
+use App\Http\Controllers\CatatanMedisController;
+
+Route::get('/dokter/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'create'])
+    ->name('dokter.catatan-medis.create');
+
+Route::post('/dokter/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'store'])
+    ->name('dokter.catatan-medis.store');

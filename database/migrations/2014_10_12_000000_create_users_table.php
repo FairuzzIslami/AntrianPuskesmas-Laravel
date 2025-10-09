@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['warga', 'dokter', 'admin'])->default('warga');
+            $table->enum('role', ['pasien', 'dokter', 'admin'])->default('pasien');
+            // database/migrations/xxxx_xx_xx_create_pasiens_table.php
+            $table->string('status_antrian')->default('menunggu');
+
             $table->timestamps();
         });
     }
