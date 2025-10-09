@@ -104,7 +104,6 @@
         </div>
     </nav>
 
-
     {{-- Konten halaman --}}
     <main class="container py-4">
         @yield('content')

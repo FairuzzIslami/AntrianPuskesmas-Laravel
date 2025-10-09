@@ -74,8 +74,12 @@
                                     <form action="{{ route('admin.dokter.destroy', $d->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
+<<<<<<< HEAD
+                                        <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus dokter ini?')">
+=======
                                         <button class="btn btn-sm btn-outline-danger rounded-pill"
                                             onclick="return confirm('Yakin hapus dokter ini?')">
+>>>>>>> origin/main
                                             <i class="bi bi-trash3"></i> Hapus
                                         </button>
                                     </form>
@@ -83,15 +87,23 @@
                             </tr>
                         @empty
                             <tr>
+<<<<<<< HEAD
+                                <td colspan="3" class="text-center text-muted">Belum ada data dokter</td>
+=======
                                 <td colspan="4" class="text-center text-muted py-4">
                                     <i class="bi bi-exclamation-circle"></i> Belum ada data dokter
                                 </td>
+>>>>>>> origin/main
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
+<<<<<<< HEAD
+    </div>
+</div>
+=======
 
         <div class="card-footer bg-white text-end py-3">
             <small class="text-muted">Total Dokter: {{ count($dokter) }}</small>
@@ -126,4 +138,5 @@
         box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
     }
 </style>
+>>>>>>> origin/main
 @endsection
