@@ -10,17 +10,16 @@ class DokterController extends Controller
     // DASHBOARD DOKTER
     public function dashboard()
     {
-        // Ambil semua pasien
         $pasiens = User::where('role', 'pasien')->get();
 
-        // Hitung jumlah pasien per status
         $menunggu = $pasiens->where('status_antrian', 'menunggu')->count();
         $dipanggil = $pasiens->where('status_antrian', 'dipanggil')->count();
-        $pemeriksaan = $pasiens->where('status_antrian', 'pemeriksaan')->count();
+        $pemeriksaan = $pasiens->where('status_antrian', 'dalam pemeriksaan')->count(); // ✅ diperbaiki
         $selesai = $pasiens->where('status_antrian', 'selesai')->count();
 
         return view('dokter.dashboard', compact('pasiens', 'menunggu', 'dipanggil', 'pemeriksaan', 'selesai'));
     }
+
 
     // DAFTAR PASIEN
     public function daftarPasien()
@@ -35,13 +34,11 @@ class DokterController extends Controller
     // HALAMAN PEMANGGILAN PASIEN
     public function pemanggilan()
     {
-        // Ambil semua pasien dengan role pasien
         $pasien = User::where('role', 'pasien')->get();
 
-        // Hitung status antrian
         $menunggu = $pasien->where('status_antrian', 'menunggu')->count();
         $dipanggil = $pasien->where('status_antrian', 'dipanggil')->count();
-        $pemeriksaan = $pasien->where('status_antrian', 'pemeriksaan')->count();
+        $pemeriksaan = $pasien->where('status_antrian', 'dalam pemeriksaan')->count(); // ✅ diperbaiki
         $selesai = $pasien->where('status_antrian', 'selesai')->count();
 
         return view('dokter.pemanggilan', compact('pasien', 'menunggu', 'dipanggil', 'pemeriksaan', 'selesai'));
@@ -61,11 +58,12 @@ class DokterController extends Controller
     public function selesai($id)
     {
         $pasien = User::findOrFail($id);
-        $pasien->status_antrian = 'selesai';
+        $pasien->status_antrian = 'selesai'; // pastikan ini sama dengan yang di database
         $pasien->save();
 
-        return redirect()->route('dokter.pemanggilan')->with('success', 'Pasien selesai diperiksa.');
+        return redirect()->back()->with('success', 'Pemeriksaan selesai.');
     }
+
 
     // HAPUS PASIEN
     public function hapus($id)

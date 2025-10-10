@@ -9,17 +9,22 @@ class LaporanDokter extends Model
 {
     use HasFactory;
 
-    protected $table = 'laporan_dokter';
+    protected $table = 'laporan_dokter'; // atau nama tabel yang sesuai
 
     protected $fillable = [
         'dokter_id',
         'nama_pasien',
         'diagnosa',
         'catatan_medis',
+        'resep_obat',
+        'tekanan_darah',
+        'suhu_tubuh',
+        'detak_jantung',
     ];
 
     public function dokter()
-    {
-        return $this->belongsTo(User::class, 'dokter_id');
-    }
+{
+    return $this->belongsTo(User::class, 'dokter_id');
+}
+
 }

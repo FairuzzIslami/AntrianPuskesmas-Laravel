@@ -114,5 +114,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dokter/laporan', [App\Http\Controllers\LaporanDokterController::class, 'store'])
         ->name('dokter.laporan.store');
 
-        
+    Route::delete('/laporan/{id}', [App\Http\Controllers\LaporanDokterController::class, 'destroy'])->name('laporan.destroy');
 });
