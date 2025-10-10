@@ -171,11 +171,15 @@
                                             @endswitch
                                         </td>
                                         <td>
-                                            <!-- Tombol Catatan Medis -->
-                                            <a href="{{ route('dokter.catatan-medis.create', $p->id) }}"
+                                        <td>
+                                            <!-- Tombol Laporan -->
+                                            <a href="{{ route('dokter.laporan.create', $p->id) }}"
                                                 class="btn btn-sm btn-success">
-                                                Catatan Medis
+                                                <i class="fas fa-file-medical-alt me-1"></i> Laporan
                                             </a>
+                                        </td>
+
+                                        </a>
 
                                         </td>
                                     </tr>

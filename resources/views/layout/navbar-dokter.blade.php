@@ -151,6 +151,14 @@
                             <span class="nav-icon"><i class="fas fa-bullhorn"></i></span> Pemanggilan
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom {{ request()->routeIs('dokter.laporan') ? 'active' : '' }}"
+                            href="{{ route('dokter.laporan') }}">
+                            <span class="nav-icon"><i class="fas fa-file-medical"></i></span> Laporan
+                        </a>
+                    </li>
+
+
                 </ul>
 
                 <div class="d-flex align-items-center ms-lg-3">

@@ -101,3 +101,18 @@ Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () 
     Route::get('/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'create'])->name('catatan-medis.create');
     Route::post('/catatan-medis/{pasien_id}', [CatatanMedisController::class, 'store'])->name('catatan-medis.store');
 });
+
+// laporan dokter
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dokter/laporan', [App\Http\Controllers\LaporanDokterController::class, 'index'])->name('dokter.laporan');
+    Route::post('/dokter/laporan', [App\Http\Controllers\LaporanDokterController::class, 'store'])->name('dokter.laporan.store');
+    // Route untuk halaman input laporan dokter
+    Route::get('/dokter/laporan/{pasien_id}', [App\Http\Controllers\LaporanDokterController::class, 'create'])
+        ->name('dokter.laporan.create');
+
+    // Route untuk menyimpan laporan ke database
+    Route::post('/dokter/laporan', [App\Http\Controllers\LaporanDokterController::class, 'store'])
+        ->name('dokter.laporan.store');
+
+        
+});
