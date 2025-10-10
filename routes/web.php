@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DokterController as AdminDokterController;
 use App\Http\Controllers\CatatanMedisController;
 
 
+
 // ----------------- HALAMAN UMUM ------------------ //
 Route::get('/', fn() => view('home'))->name('home');
 Route::get('/tentang', fn() => view('tentang'))->name('tentang');
@@ -40,12 +41,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     // KELOLA DOKTER
-    Route::get('/admin/dokter', [DokterController::class, 'index'])->name('admin.dokter');
-    Route::get('/admin/dokter/create', [DokterController::class, 'create'])->name('admin.dokter.create');
-    Route::post('/admin/dokter', [DokterController::class, 'store'])->name('admin.dokter.store');
-    Route::get('/admin/dokter/{id}/edit', [DokterController::class, 'edit'])->name('admin.dokter.edit');
-    Route::put('/admin/dokter/{id}', [DokterController::class, 'update'])->name('admin.dokter.update');
-    Route::delete('/admin/dokter/{id}', [DokterController::class, 'destroy'])->name('admin.dokter.destroy');
+    Route::get('/admin/dokter', [AdminDokterController::class, 'index'])->name('admin.dokter');
+    Route::get('/admin/dokter/create', [AdminDokterController::class, 'create'])->name('admin.dokter.create');
+    Route::post('/admin/dokter', [AdminDokterController::class, 'store'])->name('admin.dokter.store');
+    Route::get('/admin/dokter/{id}/edit', [AdminDokterController::class, 'edit'])->name('admin.dokter.edit');
+    Route::put('/admin/dokter/{id}', [AdminDokterController::class, 'update'])->name('admin.dokter.update');
+    Route::delete('/admin/dokter/{id}', [AdminDokterController::class, 'destroy'])->name('admin.dokter.destroy');
     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
 });
 

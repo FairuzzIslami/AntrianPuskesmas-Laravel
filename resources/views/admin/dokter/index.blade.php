@@ -74,12 +74,7 @@
                                     <form action="{{ route('admin.dokter.destroy', $d->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-<<<<<<< HEAD
                                         <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus dokter ini?')">
-=======
-                                        <button class="btn btn-sm btn-outline-danger rounded-pill"
-                                            onclick="return confirm('Yakin hapus dokter ini?')">
->>>>>>> origin/main
                                             <i class="bi bi-trash3"></i> Hapus
                                         </button>
                                     </form>
@@ -87,56 +82,13 @@
                             </tr>
                         @empty
                             <tr>
-<<<<<<< HEAD
                                 <td colspan="3" class="text-center text-muted">Belum ada data dokter</td>
-=======
-                                <td colspan="4" class="text-center text-muted py-4">
-                                    <i class="bi bi-exclamation-circle"></i> Belum ada data dokter
-                                </td>
->>>>>>> origin/main
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
-<<<<<<< HEAD
     </div>
 </div>
-=======
-
-        <div class="card-footer bg-white text-end py-3">
-            <small class="text-muted">Total Dokter: {{ count($dokter) }}</small>
-        </div>
-    </div>
-</div>
-
-<!-- Style tambahan -->
-<style>
-    .table thead th {
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
-
-    .table tbody tr:hover {
-        background-color: #f3fdf6 !important;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .btn-outline-warning:hover {
-        background-color: #ffc107 !important;
-        color: white !important;
-    }
-
-    .btn-outline-danger:hover {
-        background-color: #dc3545 !important;
-        color: white !important;
-    }
-
-    .card-header form input:focus {
-        box-shadow: 0 0 5px rgba(25, 135, 84, 0.4);
-    }
-</style>
->>>>>>> origin/main
 @endsection
