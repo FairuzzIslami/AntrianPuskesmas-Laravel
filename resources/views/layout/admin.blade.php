@@ -49,6 +49,12 @@
             padding: 15px;
             margin-top: 40px;
         }
+
+        @media (min-width: 992px) {
+            .navbar-nav .nav-item:last-child {
+                padding-right: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -71,7 +77,7 @@
 
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarAdmin">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item mx-1">
                         <a class="nav-link text-white {{ Request::is('admin/dashboard') ? 'fw-bold' : '' }}"
                             href="{{ route('admin.dashboard') }}">
@@ -90,7 +96,8 @@
                             Laporan
                         </a>
                     </li>
-                    <li class="nav-item d-flex align-items-center ms-lg-3">
+                    <li
+                        class="nav-item d-flex align-items-center ms-lg-3 justify-content-center justify-content-lg-end">
                         <form method="POST" action="{{ route('logout') }}" class="m-0">
                             @csrf
                             <button type="submit" class="btn btn-outline-light btn-sm d-flex align-items-center">
@@ -98,6 +105,7 @@
                             </button>
                         </form>
                     </li>
+
 
                 </ul>
             </div>
