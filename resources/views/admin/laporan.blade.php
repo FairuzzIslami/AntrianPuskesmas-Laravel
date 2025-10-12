@@ -20,7 +20,7 @@
                 <table class="table table-hover align-middle mb-0">
                     <thead class="table-success text-center">
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama Dokter</th>
                             <th>Nama Pasien</th>
                             <th>Diagnosa</th>

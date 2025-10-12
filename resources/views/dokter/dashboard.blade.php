@@ -10,7 +10,7 @@
                 <div class="card-body bg-gradient-success text-white p-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h2 class="fw-bold mb-2">Selamat Datang, dr. {{ Auth::user()->name ?? 'Dokter' }} 👨‍⚕️</h2>
+                            <h2 class="fw-bold mb-2">Selamat Datang, Dokter. {{ Auth::user()->name ?? 'Dokter' }} 👨‍⚕️</h2>
                             <p class="mb-0 text-white-50">Semoga hari Anda menyenangkan. Berikut ringkasan aktivitas hari ini.</p>
                         </div>
                         <div class="col-md-4 text-end">
