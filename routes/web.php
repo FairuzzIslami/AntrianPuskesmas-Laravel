@@ -47,7 +47,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dokter/{id}/edit', [AdminDokterController::class, 'edit'])->name('admin.dokter.edit');
     Route::put('/admin/dokter/{id}', [AdminDokterController::class, 'update'])->name('admin.dokter.update');
     Route::delete('/admin/dokter/{id}', [AdminDokterController::class, 'destroy'])->name('admin.dokter.destroy');
-    Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
+    Route::get('/laporan/export/pdf', [LaporanController::class, 'exportPDF'])->name('laporan.export.pdf');
+    Route::get('/laporan/export/excel', [LaporanController::class, 'exportExcel'])->name('laporan.export.excel');
 });
 
 

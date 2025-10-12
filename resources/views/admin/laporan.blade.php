@@ -5,13 +5,18 @@
 @section('content')
 <div class="container py-5 animate__animated animate__fadeIn">
 
-    {{-- Header --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold text-success mb-0"><i class="bi bi-clipboard2-pulse me-2"></i>Kelola Laporan Pemeriksaan</h3>
-        <a href="#" class="btn btn-success shadow-sm">
-            <i class="bi bi-plus-circle me-1"></i> Tambah Laporan (Manual)
+    <h3 class="fw-bold text-success mb-0"><i class="bi bi-clipboard2-pulse me-2"></i>Kelola Laporan Pemeriksaan</h3>
+    <div>
+        <a href="{{ route('laporan.export.pdf') }}" class="btn btn-danger me-2 shadow-sm">
+            <i class="bi bi-file-earmark-pdf me-1"></i> Export PDF
+        </a>
+        <a href="{{ route('laporan.export.excel') }}" class="btn btn-success shadow-sm">
+            <i class="bi bi-file-earmark-excel me-1"></i> Export Excel
         </a>
     </div>
+</div>
+
 
     {{-- Tabel --}}
     <div class="card border-0 shadow-lg rounded-4">
