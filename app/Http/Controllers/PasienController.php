@@ -10,6 +10,15 @@ class PasienController extends Controller
     // ==============================
     // DAFTAR PASIEN UNTUK DOKTER
     // ==============================
+    public function index()
+{
+    return redirect()->route('pasien.beranda');
+}
+public function pemanggilan()
+{
+    return view('pasien.pemanggilan');
+}
+
     public function daftarPasien()
     {
         // Ambil semua pasien

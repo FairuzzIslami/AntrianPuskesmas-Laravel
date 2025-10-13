@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasien - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .navbar-nav .nav-item {
-            margin-right: 0.5rem;
-        }
-        .footer {
-            margin-top: auto;
-        }
-        html, body {
-            height: 100%;
-        }
+        .navbar-nav .nav-item { margin-right: 0.5rem; }
+        .footer { margin-top: auto; }
+        html, body { height: 100%; }
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #f8f9fa;
         }
-        main {
-            flex: 1;
-        }
+        main { flex: 1; }
     </style>
 </head>
 <body>
@@ -47,25 +41,18 @@
                             <i class="fas fa-home me-1"></i>Home
                         </a>
                     </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle px-3" href="#" role="button" 
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-clinic-medical me-1"></i>Pilih Poli
+                    <li class="nav-item">
+                        <a href="{{ route('pasien.pemanggilan') }}" 
+                           class="nav-link px-3 {{ Request::routeIs('pasien.pemanggilan') ? 'active' : '' }}">
+                            <i class="fas fa-bell me-1"></i>Pemanggilan
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{ route('pasien.poli_anak') }}">Poli Anak</a></li>
-                            <li><a class="dropdown-item" href="{{ route('pasien.poli_gigi') }}">Poli Gigi</a></li>
-                            <li><a class="dropdown-item" href="{{ route('pasien.poli_umum') }}">Poli Umum</a></li>
-                        </ul>
                     </li>
-                    
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-outline-light btn-sm ms-2">
                                 <i class="fas fa-sign-out-alt me-1"></i>Logout
-                                </button>
+                            </button>
                         </form>
                     </li>
                 </ul>
@@ -88,5 +75,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @stack('scripts')
 </body>
 </html>

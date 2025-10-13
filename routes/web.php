@@ -56,20 +56,10 @@ Route::middleware(['auth'])->group(function () {
 // ----------------- PASIEN ------------------ //
 
 // Beranda pasien
-Route::get('/pasien', [PasienController::class, 'index'])
-    ->name('pasien.beranda');
-
-// Poli Anak
-Route::get('/pasien/poli-anak', [PasienController::class, 'poliAnak'])
-    ->name('pasien.poli_anak');
-
-// Poli Gigi
-Route::get('/pasien/poli-gigi', [PasienController::class, 'poliGigi'])
-    ->name('pasien.poli_gigi');
-
-// Poli Umum
-Route::get('/pasien/poli-umum', [PasienController::class, 'poliUmum'])
-    ->name('pasien.poli_umum');
+Route::get('/pasien', [PasienController::class, 'beranda'])->name('pasien.beranda');
+Route::get('/pasien/pemanggilan', [PasienController::class, 'pemanggilan'])
+    ->middleware('auth')
+    ->name('pasien.pemanggilan');
 
 // Halaman manajemen pasien (untuk dokter)
 Route::get('/dokter/pasien', [PasienController::class, 'index'])->name('dokter.pasien.index');
@@ -93,8 +83,9 @@ Route::prefix('dokter')->name('dokter.')->middleware('auth')->group(function () 
     // Pemanggilan pasien
     Route::prefix('pemanggilan')->group(function () {
         Route::get('/', [DokterController::class, 'pemanggilan'])->name('pemanggilan'); // ini route yang dipakai di blade
-        Route::post('/panggil/{id}', [DokterController::class, 'panggil'])->name('panggil');
-        Route::post('/selesai/{id}', [DokterController::class, 'selesai'])->name('selesai');
+        Route::post('/dokter/panggil/{id}', [DokterController::class, 'panggil'])->name('dokter.panggil');
+        Route::post('/dokter/mulai/{id}', [DokterController::class, 'mulai'])->name('dokter.mulai');
+        Route::post('/dokter/selesai/{id}', [DokterController::class, 'selesai'])->name('dokter.selesai');
         Route::delete('/hapus/{id}', [DokterController::class, 'hapus'])->name('hapus');
     });
 

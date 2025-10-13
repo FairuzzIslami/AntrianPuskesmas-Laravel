@@ -44,37 +44,47 @@ class DokterController extends Controller
         return view('dokter.pemanggilan', compact('pasien', 'menunggu', 'dipanggil', 'pemeriksaan', 'selesai'));
     }
 
-    // FUNGSI MEMANGGIL PASIEN
-    public function panggil($id)
+   public function panggil($id)
     {
         $pasien = User::findOrFail($id);
+        
+        // Reset pasien lain ke status 'menunggu' supaya tidak ganda
+        User::where('status_antrian', 'dipanggil')->update(['status_antrian' => 'menunggu']);
+        
+        // Ubah status pasien ini ke 'dipanggil'
         $pasien->status_antrian = 'dipanggil';
         $pasien->save();
 
-        return redirect()->route('dokter.pemanggilan')->with('success', 'Pasien dipanggil.');
+        return redirect()->back()->with('success', 'Pasien ' . $pasien->name . ' sedang dipanggil.');
     }
 
-    // FUNGSI SELESAI DIPERIKSA
+     public function mulai($id)
+    {
+        $pasien = User::findOrFail($id);
+        $pasien->status_antrian = 'dalam pemeriksaan';
+        $pasien->save();
+
+        return redirect()->back()->with('success', 'Pemeriksaan dimulai untuk ' . $pasien->name);
+    }
+
     public function selesai($id)
     {
         $pasien = User::findOrFail($id);
-        $pasien->status_antrian = 'selesai'; // pastikan ini sama dengan yang di database
+        $pasien->status_antrian = 'selesai';
         $pasien->save();
 
-        return redirect()->back()->with('success', 'Pemeriksaan selesai.');
+        return redirect()->back()->with('success', 'Pemeriksaan selesai untuk ' . $pasien->name);
     }
 
-
-    // HAPUS PASIEN
     public function hapus($id)
     {
         $pasien = User::findOrFail($id);
-        if ($pasien->role === 'pasien') {
-            $pasien->delete();
-            return redirect()->route('dokter.pemanggilan')->with('success', 'Pasien berhasil dihapus.');
-        }
-        return redirect()->route('dokter.pemanggilan')->with('error', 'Pasien tidak ditemukan atau bukan pasien.');
+        $pasien->status_antrian = 'menunggu';
+        $pasien->save();
+
+        return redirect()->back()->with('success', 'Riwayat pasien dihapus.');
     }
+
 
     // CATATAN MEDIS
     public function catatanMedis()

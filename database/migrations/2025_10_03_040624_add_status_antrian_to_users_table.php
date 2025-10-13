@@ -9,8 +9,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('status_antrian')->default('menunggu')->after('role');
-        });
+    $table->enum('status_antrian', ['menunggu', 'dipanggil', 'dalam pemeriksaan', 'selesai'])
+          ->default('menunggu');
+});
+
     }
 
     public function down()
