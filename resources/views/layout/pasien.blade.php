@@ -7,23 +7,145 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .navbar-nav .nav-item { margin-right: 0.5rem; }
-        .footer { margin-top: auto; }
-        html, body { height: 100%; }
+        :root {
+            --primary-color: #66bb6a;
+            /* hijau segar */
+            --primary-dark: #43a047;
+            /* hijau stabil */
+            --primary-light: #a5d6a7;
+            /* hijau muda lembut */
+            --accent-color: #c8e6c9;
+            /* hijau pucat (aksen) */
+            --secondary-color: #81c784;
+            /* hijau pastel */
+            --gradient-start: #81c784;
+            /* gradasi terang */
+            --gradient-end: #43a047;
+            /* hijau medium */
+            --text-light: #f9fff9;
+            --hover-glow: rgba(129, 199, 132, 0.4);
+        }
+
+        /* NAVBAR */
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.6rem 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .navbar-brand-custom {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-link-custom {
+            color: #f1f8e9 !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link-custom:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-color) 100%);
+            color: #1b5e20 !important;
+            box-shadow: 0 4px 12px var(--hover-glow);
+        }
+
+        .nav-link-custom.active {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #ffffff !important;
+            box-shadow: 0 3px 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .nav-icon {
+            margin-right: 6px;
+        }
+
+        /* USER INFO */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            color: #1b5e20;
+        }
+
+        .user-info strong,
+        .user-info .fw-bold {
+            color: #fff !important;
+        }
+
+        .user-info small {
+            font-size: 0.75rem;
+            color: #e8f5e9;
+        }
+
+        .user-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* LOGOUT */
+        .logout-btn {
+            background: rgba(244, 67, 54, 0.15);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #fff !important;
+            border-radius: 8px;
+            transition: 0.3s;
+            padding: 0.5rem 1rem !important;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .logout-btn:hover {
+            background: rgba(244, 67, 54, 0.3);
+            box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+            color: #fff !important;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: auto;
+            background-color: #f8f9fa;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             background-color: #f8f9fa;
         }
-        main { flex: 1; }
+
+        main {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar khusus pasien -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="{{ route('pasien.beranda') }}">
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="{{ route('pasien.beranda') }}">
                 Sistem Antrian Puskesmas
             </a>
             
@@ -34,28 +156,39 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarPasien">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="{{ route('pasien.beranda') }}" 
-                           class="nav-link px-3 {{ Request::routeIs('pasien.beranda') ? 'active' : '' }}">
-                            <i class="fas fa-home me-1"></i>Home
+                           class="nav-link nav-link-custom {{ Request::routeIs('pasien.beranda') ? 'active' : '' }}">
+                            <span class="nav-icon"><i class="fas fa-home"></i></span>Home
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('pasien.pemanggilan') }}" 
-                           class="nav-link px-3 {{ Request::routeIs('pasien.pemanggilan') ? 'active' : '' }}">
-                            <i class="fas fa-bell me-1"></i>Pemanggilan
+                           class="nav-link nav-link-custom {{ Request::routeIs('pasien.pemanggilan') ? 'active' : '' }}">
+                            <span class="nav-icon"><i class="fas fa-bell"></i></span>Pemanggilan
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-light btn-sm ms-2">
-                                <i class="fas fa-sign-out-alt me-1"></i>Logout
-                            </button>
-                        </form>
-                    </li>
                 </ul>
+
+                <div class="d-flex align-items-center ms-lg-3">
+                    <div class="user-info">
+                        <div class="user-icon">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold small">{{ Auth::user()->name ?? 'Pasien' }}</div>
+                        </div>
+                    </div>
+
+                    <a class="nav-link nav-link-custom logout-btn ms-2" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span> Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
