@@ -81,10 +81,6 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="card shadow h-100 text-dark doctor-card animate-card" data-delay="0">
-                            <div class="image-container">
-                                <img src="{{ asset('asset/img/dokter1.jpeg') }}" class="card-img-top doctor-img lazy" alt="Dokter Umum">
-                                <div class="image-overlay"></div>
-                            </div>
                             <div class="card-body text-center">
                                 <h5 class="fw-bold">drg Sri Lestari Handayani</h5>
                                 <p class="mb-1"><span class="badge bg-primary">Poli Umum</span></p>
@@ -95,10 +91,6 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow h-100 text-dark doctor-card animate-card" data-delay="100">
-                            <div class="image-container">
-                                <img src="{{ asset('asset/img/dokter2.png') }}" class="card-img-top doctor-img lazy" alt="Dokter Gigi">
-                                <div class="image-overlay"></div>
-                            </div>
                             <div class="card-body text-center">
                                 <h5 class="fw-bold">S. Wahyu Utama, S.Kep</h5>
                                 <p class="mb-1"><span class="badge bg-success">Poli Gigi</span></p>
@@ -109,10 +101,6 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow h-100 text-dark doctor-card animate-card" data-delay="200">
-                            <div class="image-container">
-                                <img src="{{ asset('asset/img/bidan.jpeg') }}" class="card-img-top doctor-img lazy" alt="Bidan Rani">
-                                <div class="image-overlay"></div>
-                            </div>
                             <div class="card-body text-center">
                                 <h5 class="fw-bold">Bidan Puan</h5>
                                 <p class="mb-1"><span class="badge bg-danger">Poli KIA</span></p>
