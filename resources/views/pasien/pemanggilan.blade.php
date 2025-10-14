@@ -159,17 +159,6 @@
                     </div>
                     <div class="col-12">
                         <div class="info-item d-flex align-items-center">
-                            <div class="info-icon-wrapper bg-info rounded-2 me-3">
-                                <i class="bi bi-hospital text-white"></i>
-                            </div>
-                            <div>
-                                <small class="text-muted d-block">Poli / Klinik</small>
-                                <strong class="text-dark">{{ auth()->user()->poli ?? 'Umum' }}</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="info-item d-flex align-items-center">
                             <div class="info-icon-wrapper bg-warning rounded-2 me-3">
                                 <i class="bi bi-123 text-white"></i>
                             </div>
