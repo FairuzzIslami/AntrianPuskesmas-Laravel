@@ -153,7 +153,7 @@
                             </div>
                             <div>
                                 <small class="text-muted d-block">Waktu</small>
-                                <strong class="text-dark">{{ now()->format('H:i') }} WIB</strong>
+                                <strong class="text-dark" id="realTimeClock">{{ now()->format('H:i:s') }} WIB</strong>
                             </div>
                         </div>
                     </div>
@@ -342,8 +342,26 @@
     </div>
 </div>
 
-<!-- AUTO REFRESH SCRIPT -->
+<!-- AUTO REFRESH & REAL-TIME CLOCK SCRIPT -->
 <script>
+    // Real-time clock update
+    function updateRealTimeClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        
+        document.getElementById('realTimeClock').textContent = 
+            `${hours}:${minutes}:${seconds} WIB`;
+    }
+
+    // Update clock every second
+    setInterval(updateRealTimeClock, 1000);
+
+    // Initialize immediately
+    updateRealTimeClock();
+
+    // Auto refresh countdown
     let countdown = 10;
     const countdownElement = document.getElementById('countdown');
     
